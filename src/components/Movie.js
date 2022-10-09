@@ -8,7 +8,7 @@ function Movie(props) {
   const { id, posterURL, ...rest } = props.movie;
 
   return (
-    <Link to={`/sessoes/${id}`} style={{ margin: "auto" }}>
+    <Link to={`/sessoes/${id}`} style={{ margin: "auto" }} data-identifier="movie-outdoor" >
       <MovieComp poster={posterURL} />
     </Link>
   )

@@ -27,13 +27,13 @@ function MoviePage() {
             <Header text={"Selecione o horário"} color={"#293845"} />
             {Object.keys(movie).length !== 0 ? (days.map((session, index) =>
             (
-                <SessionComp key={session.id}>
+                <SessionComp key={session.id} data-identifier="session-date">
                     <p>{session.weekday} - {session.date}</p>
                     <div style={{ display: "flex" }}>
                         {session.showtimes.map((time, index) =>
                         (
                             <Link key={index} to={`/assentos/${time.id}`} style={{ textDecoration: "none" }}>
-                                <TimeComp key={time.id} >{time.name}</TimeComp>
+                                <TimeComp key={time.id} data-identifier="hour-minute-btn">{time.name}</TimeComp>
                             </Link>
                         )
                         )}
@@ -42,8 +42,8 @@ function MoviePage() {
             )
             )) : "Carregando..."}
             <Footer>
-                <MoviePoster src={posterURL} />
-                {title}
+                <MoviePoster src={posterURL} data-identifier="movie-img-preview" />
+                <p data-identifier="movie-and-session-infos-preview">{title}</p>
             </Footer>
         </Wrapper>
     )

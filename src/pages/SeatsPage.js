@@ -55,21 +55,28 @@ function SeatsPage() {
             <SeatsComp>
                 {Object.keys(session).length !== 0 ? seats.map((seat) =>
                 (
-                    <Seat key={seat.id} available={seat.isAvailable} name={seat.name} reserved={reservedSeats} setReserved={setReservedSeats} />
+                    <Seat
+                        key={seat.id}
+                        available={seat.isAvailable}
+                        name={seat.name}
+                        reserved={reservedSeats}
+                        setReserved={setReservedSeats}
+                        data-identifier="seat"
+                    />
                 )
                 ) : "Carregando..."}
             </SeatsComp>
             <LegendContainer>
                 <div style={{ display: "flex", flexFlow: "column nowrap", alignItems: "center", fontSize: "13px" }}>
-                    <Legend bgColor={"#1AAE9E"} border={"#0E7D71"} />
+                    <Legend bgColor={"#1AAE9E"} border={"#0E7D71"} data-identifier="seat-selected-subtitle" />
                     Selecionado
                 </div>
                 <div style={{ display: "flex", flexFlow: "column nowrap", alignItems: "center", fontSize: "13px" }}>
-                    <Legend bgColor={"#C3CFD9"} border={"#7B8B99"} />
+                    <Legend bgColor={"#C3CFD9"} border={"#7B8B99"} data-identifier="seat-available-subtitle" />
                     Disponível
                 </div>
                 <div style={{ display: "flex", flexFlow: "column nowrap", alignItems: "center", fontSize: "13px" }}>
-                    <Legend bgColor={"#FBE192"} border={"#F7C52B"} />
+                    <Legend bgColor={"#FBE192"} border={"#F7C52B"} data-identifier="seat-unavailable-subtitle" />
                     Indisponível
                 </div>
             </LegendContainer>
@@ -81,6 +88,7 @@ function SeatsPage() {
                     name="name"
                     placeholder="Digite seu nome..."
                     onChange={(event) => setBuyer(event.target.value)}
+                    data-identifier="buyer-name-input"
                     required
                 />
                 <label htmlFor="cpf">CPF do comprador:</label>
@@ -92,10 +100,11 @@ function SeatsPage() {
                     onChange={(event) => setBuyerId(event.target.value)}
                     pattern={cpfRegEx}
                     title="287.987.176-97"
+                    data-identifier="buyer-cpf-input"
                     required
                 />
                 <Link to={`/sucesso`} state={{ from: completeForm }} style={{ textDecoration: "none" }}>
-                    <button type='submit'>Reservar assento(s)</button>
+                    <button type='submit' data-identifier="reservation-btn">Reservar assento(s)</button>
                 </Link>
             </FormComp>
             <Footer>

@@ -12,21 +12,21 @@ function Sucess(props) {
     return (
         <Wrapper>
             <Header text={"Pedido feito com sucesso!"} color={"#247A6B"} weight={"700"} />
-            <InfoParagraph>
+            <InfoParagraph data-identifier="movie-session-infos-reserve-finished">
                 <p>Filme e sessão</p>
                 <p>{movie}</p>
                 <p>{date} - {time}</p>
             </InfoParagraph>
-            <InfoParagraph>
+            <InfoParagraph data-identifier="seat-infos-reserve-finished">
                 <p>Ingressos</p>
                 {ids.map((seat) => <p>{seat}</p>)}
             </InfoParagraph>
-            <InfoParagraph>
+            <InfoParagraph data-identifier="buyer-infos-reserve-finished">
                 <p>Comprador</p>
                 <p>Nome: {name}</p>
                 <p>CPF: {cpf}</p>
             </InfoParagraph>
-            <Link to={"/"} style={{ textDecoration: "none" }}>
+            <Link to={"/"} style={{ textDecoration: "none" }} data-identifier="back-to-home-btn">
                 <button>Voltar para home</button>
             </Link>
 
