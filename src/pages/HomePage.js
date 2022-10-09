@@ -4,29 +4,29 @@ import axios from 'axios';
 import Header from '../components/Header';
 import Movie from '../components/Movie';
 
-const URL = 'https://mock-api.driven.com.br/api/v8/cineflex/movies';
+const URL = 'https://mock-api.driven.com.br/api/v5/cineflex/movies';
 
 function HomePage() {
 
-    const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-    useEffect(() => {
-      axios.get(URL)
+  useEffect(() => {
+    axios.get(URL)
       .then((response) => {
         setMovies(response.data);
       })
       .catch((error) => {
         console.log(error);
       })
-    }, [])
+  }, [])
 
 
   return (
     <>
-        <Header />
-        <MoviesWrapper>
-          {movies.map((movie, index) => <Movie key={index} movie={movie} />)}
-        </MoviesWrapper>
+      <Header text={"Selecione o filme"} color={"#293845"} />
+      <MoviesWrapper>
+        {Object.keys(movies).length !== 0 ? (movies.map((movie, index) => <Movie key={index} movie={movie} />)) : "Carregando..."}
+      </MoviesWrapper>
 
     </>
   )

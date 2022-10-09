@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 
 function Movie(props) {
 
-  const {id, title, posterURL, overview, releaseDate} = props.movie;
+  const { id, posterURL, ...rest } = props.movie;
 
   return (
-    <MovieComp poster={posterURL} />
+    <Link to={`/sessoes/${id}`} style={{ margin: "auto" }}>
+      <MovieComp poster={posterURL} />
+    </Link>
   )
 }
 

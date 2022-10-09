@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
     * {
         font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
     }
 
     html, body, div, span, applet, object, iframe,
@@ -34,6 +35,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         line-height: 1;
+        margin-bottom: 120px;
     }
 
     ol, ul {

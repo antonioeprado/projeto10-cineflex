@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Header() {
+function Header(props) {
+
   return (
-    <HeaderWrapper>Selecione o filme</HeaderWrapper>
+    <HeaderWrapper color={props.color} weight={props.weight}>{props.text}</HeaderWrapper>
   )
 }
 
@@ -15,6 +16,8 @@ const HeaderWrapper = styled.header`
     justify-content: center;
     text-align: center;
     margin: auto;
+    color: ${props => props.color};
+    font-weight: ${(props) => props.weight ? props.weight : "400"};
 `;
 
 export default Header
